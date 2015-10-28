@@ -1,4 +1,9 @@
 on boot
 
+    insmod /sbin/core_ctl.ko
+    insmod /sbin/ecryptfs.ko
+    insmod /sbin/kscl.ko
+    insmod /sbin/mhl_sii8620_8061_drv.ko
+    insmod /sbin/texfat.ko
     write /sys/class/android_usb/android0/idVendor 0FCE
     write /sys/class/android_usb/android0/idProduct 6${ro.usb.pid_suffix}

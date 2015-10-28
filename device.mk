@@ -32,14 +32,14 @@ PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/system/etc/gps.conf:system/etc/gps.conf
 
 PRODUCT_COPY_FILES += \
-    $(SONY_ROOT)/init.recovery.kitakami.rc:root/init.recovery.kitakami.rc \
-    $(SONY_ROOT)/init.recovery.kitakami.rc:root/init.recovery.kitakami64_32.rc \
-    $(SONY_ROOT)/init.kitakami.rc:root/init.kitakami.rc \
-    $(SONY_ROOT)/init.kitakami.rc:root/init.kitakami64_32.rc \
-    $(SONY_ROOT)/init.kitakami.usb.rc:root/init.kitakami.usb.rc \
-    $(SONY_ROOT)/init.kitakami.pwr.rc:root/init.kitakami.pwr.rc \
-    $(SONY_ROOT)/ueventd.kitakami.rc:root/ueventd.kitakami.rc \
-    $(SONY_ROOT)/ueventd.kitakami.rc:root/ueventd.kitakami64_32.rc
+    $(SONY_ROOT)/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+    $(SONY_ROOT)/init.recovery.qcom.rc:root/init.recovery.qcom64_32.rc \
+    $(SONY_ROOT)/init.qcom.rc:root/init.qcom.rc \
+    $(SONY_ROOT)/init.qcom.rc:root/init.qcom64_32.rc \
+    $(SONY_ROOT)/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    $(SONY_ROOT)/init.qcom.pwr.rc:root/init.qcom.pwr.rc \
+    $(SONY_ROOT)/ueventd.qcom.rc:root/ueventd.qcom.rc \
+    $(SONY_ROOT)/ueventd.qcom.rc:root/ueventd.qcom64_32.rc
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -76,6 +76,11 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
+# Recovery
+PRODUCT_PACKAGES += \
+    extract_elf_ramdisk \
+    static_busybox
+
 # NFC
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/system/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
@@ -110,7 +115,7 @@ PRODUCT_PACKAGES += \
     libtinyalsa \
     libtinycompress \
     libaudioroute \
-    tinymix \
+    tinymix
 
 # Audio effects
 PRODUCT_PACKAGES += \
