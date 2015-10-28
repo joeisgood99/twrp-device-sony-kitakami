@@ -20,7 +20,8 @@ DEVICE_PACKAGE_OVERLAYS += \
     device/sony/kitakami/overlay
 
 PRODUCT_COPY_FILES += \
-    $(SONY_ROOT)/fstab.kitakami:root/fstab.kitakami \
+    $(SONY_ROOT)/fstab.qcom:root/fstab.qcom \
+    $(SONY_ROOT)/twrp.fstab:root/twrp.fstab \
     $(SONY_ROOT)/system/usr/idc/clearpad.idc:system/usr/idc/clearpad.idc \
     $(SONY_ROOT)/system/usr/idc/touch_fusion.idc:system/usr/idc/touch_fusion.idc \
     $(SONY_ROOT)/system/etc/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
