@@ -76,11 +76,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
-# Recovery
-PRODUCT_PACKAGES += \
-    extract_elf_ramdisk \
-    static_busybox
-
 # NFC
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/system/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
