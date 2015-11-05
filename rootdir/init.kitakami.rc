@@ -22,7 +22,7 @@ on init
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
     # BoringSSL hacks
-    export LD_PRELOAD "/system/lib64/libboringssl-compat.so"
+    export LD_PRELOAD "libboringssl-compat.so"
 
     mkdir /dev/bus 0755 root root
     mkdir /dev/bus/usb 0755 root root
@@ -152,17 +152,6 @@ on boot
     chown system system /sys/devices/virtual/input/clearpad/cover_win_left
     chown system system /sys/devices/virtual/input/clearpad/cover_win_right
     chown system system /sys/devices/virtual/input/clearpad/cover_win_top
-
-    # Bring CPUs online
-    write /sys/module/msm_thermal/core_control/enabled 0
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu4/online 1
-    write /sys/devices/system/cpu/cpu5/online 1
-    write /sys/devices/system/cpu/cpu6/online 1
-    write /sys/devices/system/cpu/cpu7/online 1
-    write /sys/module/msm_thermal/core_control/enabled 1
 
     # Bluetooth device
     chown bluetooth net_bt_stack /dev/ttyHS0
