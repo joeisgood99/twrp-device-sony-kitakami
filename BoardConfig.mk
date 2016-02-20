@@ -127,12 +127,33 @@ EXTENDED_FONT_FOOTPRINT := true
 #-include vendor/sony/kernel/KernelConfig.mk
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 
-#BOARD_SEPOLICY_DIRS += device/sony/kitakami/sepolicy
+BOARD_SEPOLICY_DIRS += \
+    device/sony/kitakami/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    addrsetup.te \
+    device.te \
+    file.te \
+    property.te \
+    sct.te \
+    sensors.te \
+    service.te \
+    system_app.te \
+    tad.te \
+    ta_qmi.te \
+    thermanager.te \
+    timekeep.te \
+    file_contexts \
+    property_contexts \
+    service_contexts
 
 # TWRP
-RECOVERY_VARIANT=twrp
+ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
+RECOVERY_VARIANT := twrp
+endif
+
 DEVICE_RESOLUTION := 720x1280
 TW_THEME := portrait_hdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
@@ -152,8 +173,14 @@ TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,barrier=1,noauto_da_alloc,discard"
 TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
 TW_INCLUDE_FUSE_EXFAT := true
-TW_NO_USB_STORAGE := true
-TW_NO_SCREEN_BLANK := true
 TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone10/temp
 TW_BRIGHTNESS_PATH := /sys/class/leds/wled/brightness
 TW_MAX_BRIGHTNESS := 3511
+
+#TW_EXTRA_LANGUAGES_JA := true
+
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+BOARD_USES_QC_TIME_SERVICES := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+TARGET_CPU_CORTEX_A53 := true
+>>>>>>> da1e39e... Fixed USB OTG and updated
