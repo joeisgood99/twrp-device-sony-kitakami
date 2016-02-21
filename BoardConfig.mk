@@ -183,4 +183,4 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 BOARD_USES_QC_TIME_SERVICES := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_CPU_CORTEX_A53 := true
->>>>>>> da1e39e... Fixed USB OTG and updated
+
